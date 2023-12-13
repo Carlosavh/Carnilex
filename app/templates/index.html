@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carnilex</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='imagenes/icon.png') }}" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <script>
+        // Define una variable JavaScript con la ruta de la imagen
+        const trashIcon = "{{ url_for('static', filename='imagenes/trash.png') }}";
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{{ url_for('main.iniciar_sesion') }}">Iniciar sesión</a>
+            <div class="carrito-container">
+                <img class="carrito" src="{{ url_for('static', filename='imagenes/carrito-de-compras.png') }}" alt="carrito">
+                <div class="numero"></div>
+            </div>
+        </nav>
+        <section class="textos-header">
+            <h1>Las plantas más increíbles que existen</h1>
+        </section>
+        <div class="wave" style="height: 150px; overflow: hidden;">
+            <div style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path></svg></div>
+        </div>
+    </header>
+    <main> 
+
+        <div id="contenedorCompra" class="contenedorCompra">
+            <div class="informacionCompra" id="informacionCompra"></div>
+            <h2>Cesta</h2>
+            <p class="x" id="x">x</p>
+            <div class="productosCompra" id="productosCompra"></div>
+            <div class="total" id="total"></div>
+            <button>Finalizar Compra</button>
+        </div>
+        
+
+        <section class="contenedor-sobre-nosotros">
+            <h2 class="titulo">Nuestro Producto</h2>
+            <div class="contenedor-sobre-nosotros">
+                <img src="{{ url_for('static', filename='imagenes/dionaea.jpg') }}" alt="" class="imagen-dionaea">
+            </div>
+            <div class="contenedor-tipos-plantas">
+                <h3 class="contenido-textos"><span>1</span>Las mejores plantas</h3>
+                <p>¡¡¡En este invernadero se cultivan las mejores plantas del país, con plantas exclusivas para nuestros clientes, tanto de nuestros propios híbridos, como híbridos de todas partes del mundo!!!</p>
+                <h3 class="contenido-textos"><span>2</span>Los mejores cuidados</h3>
+                <p>Las mejores plantas requieren los mejores cuidados, por lo que en nuestras instalaciones se le proporciona las mejores condiciones para que todas nuestras plantas tengan las mejores condiciones para crecer.</p>
+            </div>
+        </section>
+        <section class="portafolio">
+            <div class="contenedor">
+                <h2 class="titulo">Catalogo</h2>
+                <div class="galeria-port">
+                    <div class="imagen-port">
+                        <img src="{{ url_for('static', filename='imagenes/Darlingtonia.jpeg') }}" alt="">
+                        <div class="hover-galeria">
+                            <img src="{{ url_for('static', filename='imagenes/target.png') }}" alt="">
+                            <p>Darlingtonia</p>
+                            <p>$1200</p>
+                            <button class="agregar-carrito" onclick="agregarAlCarrito('Darlingtonia', 1200)">Agregar al carrito</button>
+                        </div>
+                    </div> 
+                <div class="imagen-port">
+                    <img src="{{ url_for('static', filename='imagenes/dionaea-muscipula-typical.jpg') }}" alt="">
+                    <div class="hover-galeria">
+                        <img src="{{ url_for('static', filename='imagenes/target.png') }}" alt="">
+                        <p>Dionaea</p>
+                        <p>$500</p>
+                        <button class="agregar-carrito" onclick="agregarAlCarrito('Dionaea', 500)">Agregar al carrito</button>
+                    </div>
+                </div> 
+                <div class="imagen-port">
+                    <img src="{{ url_for('static', filename='imagenes/drosera_rotundifolia.jpg') }}" alt="">
+                    <div class="hover-galeria">
+                        <img src="{{ url_for('static', filename='imagenes/target.png') }}" alt="">
+                        <p>Drosera</p>
+                        <p>$700</p>
+                        <button class="agregar-carrito" onclick="agregarAlCarrito('Drosera', 700)">Agregar al carrito</button>
+                    </div>
+                </div> 
+                <div class="imagen-port">
+                    <img src="{{ url_for('static', filename='imagenes/nephentes.jpeg') }}" alt="">
+                    <div class="hover-galeria">
+                        <img src="{{ url_for('static', filename='imagenes/target.png') }}" alt="">
+                        <p>Nephentes</p>
+                        <p>$1500</p>
+                        <button class="agregar-carrito" onclick="agregarAlCarrito('Nephentes', 1500)">Agregar al carrito</button>
+                    </div>
+                </div>
+                    <div class="imagen-port">
+                        <img src="{{ url_for('static', filename='imagenes/pinguicula.jpg') }}" alt="">
+                        <div class="hover-galeria">
+                            <img src="{{ url_for('static', filename='imagenes/target.png') }}" alt="">
+                            <p>Pinguicula</p>
+                            <p>$300</p>
+                            <button class="agregar-carrito" onclick="agregarAlCarrito('Pinguicula', 300)">Agregar al carrito</button>
+                        </div>
+                    </div>  
+                <div class="imagen-port">
+                    <img src="{{ url_for('static', filename='imagenes/Sarracenia.jpeg') }}" alt="">
+                    <div class="hover-galeria">
+                        <img src="{{ url_for('static', filename='imagenes/target.png') }}" alt="">
+                        <p>Sarracenia</p>
+                        <p>$800</p>
+                        <button class="agregar-carrito" onclick="agregarAlCarrito('Sarracenia', 800)">Agregar al carrito</button>
+                    </div>
+                </div> 
+                <div class="imagen-port">
+                    <img src="{{ url_for('static', filename='imagenes/utricularia.jpg') }}" alt="">
+                    <div class="hover-galeria">
+                        <img src="{{ url_for('static', filename='imagenes/target.png') }}" alt="">
+                        <p>Utricularia</p>
+                        <p>$100</p>
+                        <button class="agregar-carrito" onclick="agregarAlCarrito('Utricularia', 100)">Agregar al carrito</button>
+                    </div>
+                </div>
+                <div class="imagen-port">
+                    <img src="{{ url_for('static', filename='imagenes/Cephalotus.jpg') }}" alt="">
+                    <div class="hover-galeria">
+                        <img src="{{ url_for('static', filename='imagenes/target.png') }}" alt="">
+                        <p>Cephalotus</p>
+                        <p>$400</p>
+                        <button class="agregar-carrito" onclick="agregarAlCarrito('Cephalotus', 400)">Agregar al carrito</button>
+                    </div>
+                </div> 
+                </div>
+            </div>
+        </section>
+        <section class="clientes contenedor">
+            <h2 class="titulo">Que dicen nuestros clientes</h2>
+            <div class="cards">
+                <div class="card">
+                    <img src="{{ url_for('static', filename='imagenes/face1.jpg') }}" alt="">
+                    <div class="contenido-texto-card">
+                        <h4>Gwen Stacy</h4>
+                        <p>¡¡Excelentes plantas!! Muy bien cuidadas   y muy sanas.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="{{ url_for('static', filename='imagenes/face2.jpg') }}" alt="">
+                    <div class="contenido-texto-card">
+                        <h4>Bruce Wayne</h4>
+                        <p>Sin duda son los mejores y no podrás encontrar plantas como estas en ningún otro lugar.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="about-services">
+            <div class="contenedor">
+                <h2 class="titulo">Nuestros servicios</h2>
+                <div class="servicio-cont">
+                    <div class="servicio-ind">
+                        <img src="{{ url_for('static', filename='imagenes/ilustracion1.png') }}" alt="">
+                        <h3>Individual</h3>
+                        <p>Tenemos plantas a venta para minoristas y de cualquier especie que desees </p>
+                    </div>
+                    <div class="servicio-ind">
+                        <img src="{{ url_for('static', filename='imagenes/ilustracion2.png') }}" alt="">
+                        <h3>Mayoristas</h3>
+                        <p>Para cultivadores excepcionales tenemos precios excepcionales, contáctate con nosotros y te proporcionaremos un precio sin igual y atención personalizada.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+    <footer>
+        <div class="contenedor-footer">
+            <div class="content-foo">
+                <h4>Phone</h4>
+                <p>5549659461</p>
+            </div>
+            <div class="content-foo">
+                <h4>Email</h4>
+                <p>cavh.unam@gmail.com</p>
+            </div>
+            <div class="content-foo">
+                <h4>Location</h4>
+                <p>Facultad de Ingeniería, Ciudad Universitaria, Coyoacán, CDMX. </p>
+            </div>
+        </div>
+        <h2 class="titulo-final"> &copy; CAVH | Carlos Valdez</h2>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
